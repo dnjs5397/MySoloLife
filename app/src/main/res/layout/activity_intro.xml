@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/radius"
-                android:text="비회원 회원가입"
+                android:text="비회원 로그인"
                 android:textSize="15sp" />
 
 

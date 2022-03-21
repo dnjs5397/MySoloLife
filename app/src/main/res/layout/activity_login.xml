@@ -59,6 +59,7 @@
             android:background="#999999"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/LoginBtn"
             android:backgroundTint="@color/mainColor"
             android:background="@drawable/radius"
             android:text="로그인하기"

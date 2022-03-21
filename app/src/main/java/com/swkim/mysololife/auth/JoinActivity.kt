@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -14,7 +15,7 @@ import com.swkim.mysololife.databinding.ActivityJoinBinding
 class JoinActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityJoinBinding
-    private lateinit var auth: FirebaseAuth
+    private lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityJoinBinding.inflate(layoutInflater)
@@ -51,8 +52,9 @@ class JoinActivity : AppCompatActivity() {
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 Toast.makeText(this, "계정이 생성되었습니다.", Toast.LENGTH_SHORT).show()
-                                startActivity(Intent(this, MainActivity::class.java))
-                                finish()
+                                val intent = Intent(this, MainActivity::class.java)
+                                startActivity(intent)
+                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             } else {
                                 // If sign in fails, display a message to the user.
 
